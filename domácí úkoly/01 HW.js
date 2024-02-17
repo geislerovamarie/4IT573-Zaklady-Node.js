@@ -15,7 +15,7 @@ while(numGuesses > 0){
         success = true
         break
     }else{
-	    if(guess == null) break // přestat hádat
+        if(guess == null) break // přestat hádat
         speech = "To bohužel není správně. Zkuste to znovu - číslo od 0 do " + (maxVal-1)+". Uhádnete jaké? Počet pokusů je " + numGuesses + ". "
     }
 }
