@@ -3,7 +3,6 @@
 
 import fs from 'fs'
 
-
 const instructions = "instrukce.txt"
 
 // read instructions and get file names
