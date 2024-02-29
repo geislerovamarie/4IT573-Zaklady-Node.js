@@ -25,13 +25,13 @@ async function main(){
 
 async function createFiles(num)
 {
-  let functions = [];
+  let writeFileFunctions = [];
   for(let i = 0; i < num; i++){ 
-    functions.push(fs.writeFile(i + ".txt", "Soubor " + i));
+    writeFileFunctions.push(fs.writeFile(i + ".txt", "Soubor " + i));
   }
 
   try{
-    await Promise.all(functions);
+    await Promise.all(writeFileFunctions);
     console.log("Soubory byly vytvořeny.");
   }catch(err){
     console.error("Nastal problém, více informací:\n" +err);
