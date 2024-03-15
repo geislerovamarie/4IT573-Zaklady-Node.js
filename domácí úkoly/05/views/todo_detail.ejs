@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= todo.title %></title>
+</head>
+<body>
+
+    <h1><%= todo.title %></h1>
+    <%= todo.done ? "hotovo" : "nehotovo"%> <br>
+
+    <a href="/remove-todo/<%= todo.id%>">Odebrat</a> <br>
+    <a href="/toggle-todo/<%= todo.id%>">Změnit stav</a> <br>
+
+    <form method="post" action="/todo/<%= todo.id%>/rename-todo">
+        <input name="new_title" placeholder="Nový název">
+        <button type="submit">Uložit</button>
+    </form>
+
+</body>
+</html>

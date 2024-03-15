@@ -1,3 +1,6 @@
+// 4IT573 Základy Node.js
+// 4. úkol
+
 import http from 'http'
 import fs from "fs/promises"
 
