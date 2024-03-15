@@ -7,3 +7,4 @@ Kódy používané v předmětu 4IT573 Základy Node.js
 02 Kopírování obsahu z jednoho souboru do druhého\
 03 Vytvoření daného počtu souborů (async await)\
 04 Server - counter, číslo v souboru\
+04 TODO - detail konkrétního TODO
