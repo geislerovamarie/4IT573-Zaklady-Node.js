@@ -12,6 +12,7 @@
     <% for (const todo of todos) {%>
         <li>
             <a href="/todo/<%= todo.id%>"><b><%= todo.title %></b></a>&nbsp;
+            <b><%= prio_text[todo.priority] %></b>&nbsp;
             <a href="/remove-todo/<%= todo.id%>">odebrat</a>&nbsp;
             <a href="/toggle-todo/<%= todo.id%>">
                 <%= todo.done ? "hotovo" : "nehotovo"%>

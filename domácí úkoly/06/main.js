@@ -5,6 +5,14 @@ import express from 'express'
 import knex from "knex"
 import knexfile from './knexfile.js';
 
+
+const prio = Object.freeze({
+    NORMAL: 0,
+    LOW: 1,
+    HIGH: 2
+});
+const prio_text = ["Normální priorita", "Nízká priorita", "Vysoká priorita"];
+
 const port = 3000;
 const app = express();
 const db = knex(knexfile);
@@ -24,12 +32,14 @@ app.get('/', async (req, res) => {
     res.render('index', {
         title: "Todos",
         todos,
+        prio_text
     })
   })
 
 app.post("/add-todo", async (req,res) => {
     const todo = {
         title: req.body.title,
+        priority: 0,
         done: false,
     }
 
@@ -59,13 +69,21 @@ app.get("/todo/:id", async (req, res) => {
 
     res.render("todo_detail", {
         todo,
+        prio_text
     })
 })
 
 app.post("/update-todo/:id", async (req, res, next) => {
     const todo = await db("todos").select("*").where("id", req.params.id).first()
     if (!todo) return next();
-    await db("todos").update({title: req.body.title}).where("id", todo.id)
+
+    // update title
+    if(req.body.title != ""){
+        await db("todos").update({title: req.body.title}).where("id", todo.id)
+    }
+
+    // update priority
+    await db("todos").update({priority: req.body.priority}).where("id", todo.id)
     res.redirect("back");
 })
 
@@ -79,7 +97,7 @@ app.use((err, req, res, next) => {
     res.status(500);
     res.send("500 - Server error")
   })
-
+  
 app.listen(port, () => {
     console.log("Server listening on http://localhost:" + port);
 })
