@@ -8,4 +8,5 @@ Kódy používané v předmětu 4IT573 Základy Node.js
 03 Vytvoření daného počtu souborů (async await)\
 04 Server - counter, číslo v souboru\
 05 TODO - detail konkrétního TODO\
-06 TODO - priorita, databáze, migrace
+06 TODO - priorita, databáze, migrace\
+07 TODO - websockety

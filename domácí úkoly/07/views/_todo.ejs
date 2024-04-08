@@ -1,0 +1,23 @@
+<h1><%= todo.title %></h1>
+
+<%= todo.done ? "hotovo" : "nehotovo"%> <br>
+<a href="/toggle-todo/<%= todo.id%>">Změnit stav</a> <br><br>
+<a href="/remove-todo/<%= todo.id%>">Odebrat</a> <br><br>
+
+
+<h3>Uprav TODO:</h3>
+
+<form method="post" action="/update-todo/<%= todo.id %>">
+    <input name="title" placeholder="Nový název"><br>
+
+    <select name="priority">
+        <option value="low" <%= todo.priority=="low" ? "selected" : ""%>><%='low'%></option>
+        <option value="normal" <%= todo.priority=="normal" ? "selected" : ""%>><%='normal'%></option>
+        <option value="high" <%= todo.priority=="high" ? "selected" : ""%>><%='high'%></option>
+    </select> <br>
+    
+    <button type="submit">Uložit</button>
+</form>
+<br>
+
+<a href="/">Zpět</a>
